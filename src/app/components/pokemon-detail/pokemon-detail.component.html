@@ -1,0 +1,21 @@
+
+<div class="pokemon-grid">
+    <div class="box" *ngFor="let pokemon of mesPokemon" >
+        <div class="example-button-container">
+            <button (click)="delete(pokemon)" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+              <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+        <img src="https://projectpokemon.org/images/normal-sprite/{{ pokemon.name }}.gif" alt="pokemon" (click)="onDetail(pokemon)"> 
+        <img class="pokeball" src="../../../assets/pokeball-background.png" alt="pokeball">
+        <div class="box2">
+         <h3>{{ pokemon.name }}</h3>
+         <p>
+            <b>Type:</b> {{ pokemon.types[0].type.name }}
+         </p>
+         <p>
+            <b>Num:</b> {{ pokemon.id }}
+        </p>
+        </div>
+    </div> 
+</div>

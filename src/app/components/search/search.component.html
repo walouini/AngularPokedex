@@ -1,0 +1,40 @@
+<div class="search">
+    <h4>Search For Pokemons</h4>
+    <input type="text" placeholder="pikachu or 25" #pok (keyup.enter)="getSearch(pok.value)">
+</div>
+
+<div>
+    <div class="box" *ngFor="let pokemon of pokemons">
+        <img src="https://projectpokemon.org/images/normal-sprite/{{ pokemon.name }}.gif" alt="pokemon"> 
+        <div class="box2">
+            <mat-tab-group>
+                <mat-tab label="About"> 
+                <p>
+                    <b>Height:</b> {{ pokemon.height }}
+                </p>
+                <p>
+                    <b>Weight:</b> {{ pokemon.weight }}
+                </p>
+                <p>
+                    <b>Abilities:</b> {{ getAbilities(pokemon) }}
+                </p>
+                </mat-tab>
+                <mat-tab label="Base Stats"> 
+                <p>
+                    <b>Attack Power:</b> {{ pokemon.stats[1].base_stat }}
+                </p>
+                <p>
+                    <b>Defense Power:</b> {{ pokemon.stats[2].base_stat }}
+                </p>
+                <p>
+                    <b>Speed Power:</b> {{ pokemon.stats[5].base_stat }}
+                </p>
+                <p>
+                    <b>Health:</b> {{ pokemon.stats[0].base_stat }}
+                </p>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="addPokemoninMyList(pokemon);">Je possède ce pokémon</button>
+    </div> 
+</div>

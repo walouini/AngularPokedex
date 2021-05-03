@@ -1,0 +1,27 @@
+
+<app-search></app-search>
+
+<img class="bg__pokeball" src="../../../assets/pokeball-background.png" alt="pokeball">
+
+<div class="pokemon-grid">
+   <div class="box" *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalPokemons}">
+        <div (click)="onDetail(pokemon)">
+            <img src="https://projectpokemon.org/images/normal-sprite/{{ pokemon.name }}.gif" alt="pokemon"> 
+            <img class="pokeball" src="../../../assets/pokeball-background.png" alt="pokeball">
+            <div class="box2">
+                <a>
+                    <h3>{{ pokemon.name }}</h3>
+                </a>
+                <p>
+                    <b>Type:</b> {{ pokemon.types[0].type.name }}
+                </p>
+                <p>
+                    <b>Num:</b> {{ pokemon.id }}
+                </p>
+            </div>
+        </div>   
+        <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="addPokemoninMyList(pokemon);">Je possède ce pokémon</button>
+    </div>
+</div>
+
+<pagination-controls (pageChange)="page = $event; pokemons.length = 0; getPokemons();"></pagination-controls>

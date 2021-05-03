@@ -1,0 +1,33 @@
+
+<div class="box" >
+  <img src="https://projectpokemon.org/images/normal-sprite/{{ pokemon.name }}.gif" alt="pokemon"> 
+  <div class="box2">
+    <mat-tab-group>
+      <mat-tab label="About"> 
+        <p>
+          <b>Height:</b> {{ pokemon.height }}
+        </p>
+        <p>
+          <b>Weight:</b> {{ pokemon.weight }}
+        </p>
+        <p>
+          <b>Abilities:</b> {{ getAbilities() }}
+        </p>
+      </mat-tab>
+      <mat-tab label="Base Stats"> 
+        <p>
+            <b>Attack Power:</b> {{ pokemon.stats[1].base_stat }}
+        </p>
+        <p>
+          <b>Defense Power:</b> {{ pokemon.stats[2].base_stat }}
+        </p>
+        <p>
+          <b>Speed Power:</b> {{ pokemon.stats[5].base_stat }}
+        </p>
+        <p>
+          <b>Health:</b> {{ pokemon.stats[0].base_stat }}
+        </p>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div> 
